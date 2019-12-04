@@ -1,30 +1,15 @@
-# SteelSeries Arctis 5 pulseaudio profile
+# SteelSeries Arctis PulseAudio Profile Generator
 
-The SteelSeries Arctis 5 is a gaming headset which has two stereo audio outputs. One for voice chat and one for the rest of the sound. It can be mixed between with a physical knob.
+A few SteelSeries Arctis gaming headsets (like the Arctis 5 and Arctis 7) have two stereo outputs, one for voice and one for all other sound, which can be mixed by using a knob called ChatMix.
 
-By default, pulseaudio only enables the voice chat output. This profile enables the second (game) output and the udev rule makes sure this profile is used when plugging in the device.
+Linux/PulseAudio by default only enables the voice chat output, since it's the first one. This profile generator will enable both, so you can use it as you would on Windows.
+
+This generator was based off [DemonTPx/steelseries-arctis-5-pulseaudio-profile](https://github.com/DemonTPx/steelseries-arctis-5-pulseaudio-profile)'s profile, except it works in a completely automated manner. It also works with custom variants (like the Arctis 5 PUBG Edition), which have different product IDs, as far as it has "SteelSeries Arctis" on the device name.
 
 ## Installing
 
-### Ubuntu / Linux Mint
+Clone this repo via command-line, cd into it and run `sudo ./configure.sh`.
 
-Download and install:
+Make sure the headset is plugged-in.
 
-- [pulseaudio-steelseries-arctis-5_0.3_all.deb](https://github.com/DemonTPx/steelseries-arctis-5-pulseaudio-profile/releases/download/0.3/pulseaudio-steelseries-arctis-5_0.3_all.deb)
-
-After that, plug in the device to see if it works.
-
-### From source
-
-Install from by copying the following files:
-
-- `steelseries-arctis-5-output-game.conf` and `steelseries-arctis-5-output-chat.conf` to `/usr/share/pulseaudio/alsa-mixer/paths/`
-- `steelseries-arctis-5-usb-audio.conf` to `/usr/share/pulseaudio/alsa-mixer/profile-sets/`
-- `91-pulseaudio-steelseries-arctis-5.rules` to `/lib/udev/rules.d/`
-
-Restart pulseaudio:
-
-    pulseaudio -k
-    pulseaudio --start
-
-After that, plug in the device to see if it works.
+You should have both outputs available after this. If you don't, try rebooting your computer.
