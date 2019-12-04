@@ -21,7 +21,7 @@ echo "Device found: $USB_DEV_VENDOR:$USB_DEV_PRODUCT ($USB_RAW)"
 
 # Create the profile
 echo "Writing .rules file..."
-echo "ATTRS{idVendor}==\"$USB_DEV_VENDOR\", ATTRS{idProduct}==\"USB_DEV_PRODUCT\", ENV{PULSE_PROFILE_SET}=\"steelseries-arctis-usb-audio.conf\"" > 91-pulseaudio-steelseries-arctis.rules
+echo "ATTRS{idVendor}==\"$USB_DEV_VENDOR\", ATTRS{idProduct}==\"$USB_DEV_PRODUCT\", ENV{PULSE_PROFILE_SET}=\"steelseries-arctis-usb-audio.conf\"" > 91-pulseaudio-steelseries-arctis.rules
 
 # Write the profiles to folders
 echo "Installing .rules and .conf files..."
